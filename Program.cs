@@ -1,3 +1,5 @@
+using ProyectoPrestamos.Entidades;
+
 namespace ProyectoPrestamos
 {
     internal static class Program
@@ -8,9 +10,9 @@ namespace ProyectoPrestamos
         [STAThread]
         static void Main()
         {
-            
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Solicitud());
+
+             ApplicationConfiguration.Initialize();
+             Application.Run(new Login());
             
         }
     }

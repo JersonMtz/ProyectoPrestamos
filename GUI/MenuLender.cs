@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoPrestamos
 {
-    public partial class Menu : Form
+    public partial class MenuLender : Form
     {
-        public Menu()
+        public MenuLender()
         {
             InitializeComponent();
         }

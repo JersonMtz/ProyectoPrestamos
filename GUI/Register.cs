@@ -59,6 +59,8 @@ namespace ProyectoPrestamos
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+            this.btnRegistrar.Enabled = false;
             if (txtCedula.Text == "" || txtNombre.Text == "" || txtPriApellido.Text == "" || txtChange.Text == "" || password1.Text == "" || password2.Text == "" || typePerson.Text == "")
             {
                 MessageBox.Show("Por favor ingrese los datos requeridos");
@@ -95,6 +97,9 @@ namespace ProyectoPrestamos
                   txtSegApellido.Text, 'P', password1.Text, valor, 0);
                 persona.Registrar();
             }
+
+            this.Limpiar();
+            this.btnRegistrar.Enabled = true;
         }
 
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
@@ -111,6 +116,18 @@ namespace ProyectoPrestamos
             {
                 e.Handled = true;
             }
+        }
+
+        private void Limpiar()
+        {
+            this.txtCedula.Text = String.Empty;
+            this.txtNombre.Text = String.Empty;
+            this.txtPriApellido.Text = String.Empty;
+            this.txtSegApellido.Text = String.Empty;
+            this.typePerson.Text = String.Empty;
+            this.password1.Text = String.Empty;
+            this.password2.Text = String.Empty;
+            this.txtChange.Text = String.Empty;
         }
     }
 }

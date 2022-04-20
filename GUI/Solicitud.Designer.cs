@@ -38,14 +38,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMotivo = new System.Windows.Forms.RichTextBox();
+            this.txtPlazo = new System.Windows.Forms.DateTimePicker();
+            this.txtInteres = new System.Windows.Forms.NumericUpDown();
+            this.txtImporte = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSolicitar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInteres)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -151,41 +151,47 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Motivo:";
             // 
-            // richTextBox1
+            // txtMotivo
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(40, 307);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(915, 149);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = "";
+            this.txtMotivo.Location = new System.Drawing.Point(40, 307);
+            this.txtMotivo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtMotivo.Name = "txtMotivo";
+            this.txtMotivo.Size = new System.Drawing.Size(915, 149);
+            this.txtMotivo.TabIndex = 11;
+            this.txtMotivo.Text = "";
             // 
-            // dateTimePicker1
+            // txtPlazo
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(380, 174);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(245, 30);
-            this.dateTimePicker1.TabIndex = 13;
+            this.txtPlazo.Location = new System.Drawing.Point(380, 174);
+            this.txtPlazo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPlazo.Name = "txtPlazo";
+            this.txtPlazo.Size = new System.Drawing.Size(245, 30);
+            this.txtPlazo.TabIndex = 13;
             // 
-            // numericUpDown2
+            // txtInteres
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(771, 173);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(184, 30);
-            this.numericUpDown2.TabIndex = 15;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtInteres.Location = new System.Drawing.Point(771, 173);
+            this.txtInteres.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtInteres.Name = "txtInteres";
+            this.txtInteres.Size = new System.Drawing.Size(184, 30);
+            this.txtInteres.TabIndex = 15;
+            this.txtInteres.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtInteres.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
-            // textBox1
+            // txtImporte
             // 
-            this.textBox1.Location = new System.Drawing.Point(40, 175);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 30);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.Text = "$5000";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtImporte.Location = new System.Drawing.Point(40, 175);
+            this.txtImporte.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtImporte.Name = "txtImporte";
+            this.txtImporte.Size = new System.Drawing.Size(245, 30);
+            this.txtImporte.TabIndex = 16;
+            this.txtImporte.Text = "0";
+            this.txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporte_KeyPress);
             // 
             // label9
             // 
@@ -198,36 +204,38 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "%";
             // 
-            // button1
+            // btnCancelar
             // 
-            this.button1.Location = new System.Drawing.Point(40, 475);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(219, 38);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(40, 475);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(219, 38);
+            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button2
+            // btnSolicitar
             // 
-            this.button2.Location = new System.Drawing.Point(741, 475);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(219, 38);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Solicitar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSolicitar.Location = new System.Drawing.Point(741, 475);
+            this.btnSolicitar.Name = "btnSolicitar";
+            this.btnSolicitar.Size = new System.Drawing.Size(219, 38);
+            this.btnSolicitar.TabIndex = 19;
+            this.btnSolicitar.Text = "Solicitar";
+            this.btnSolicitar.UseVisualStyleBackColor = true;
+            this.btnSolicitar.Click += new System.EventHandler(this.btnSolicitar_Click);
             // 
             // Solicitud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 541);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSolicitar);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtImporte);
+            this.Controls.Add(this.txtInteres);
+            this.Controls.Add(this.txtPlazo);
+            this.Controls.Add(this.txtMotivo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -246,8 +254,9 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Solicitud";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Solicitud_FormClosing);
             this.Load += new System.EventHandler(this.Solicitud_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInteres)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,12 +273,12 @@
         private Label label6;
         private Label label7;
         private Label label8;
-        private RichTextBox richTextBox1;
-        private DateTimePicker dateTimePicker1;
-        private NumericUpDown numericUpDown2;
-        private TextBox textBox1;
+        private RichTextBox txtMotivo;
+        private DateTimePicker txtPlazo;
+        private NumericUpDown txtInteres;
+        private TextBox txtImporte;
         private Label label9;
-        private Button button1;
-        private Button button2;
+        private Button btnCancelar;
+        private Button btnSolicitar;
     }
 }

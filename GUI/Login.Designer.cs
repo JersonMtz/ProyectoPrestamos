@@ -41,6 +41,7 @@
             // btnLogin
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.Enabled = false;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnLogin.Location = new System.Drawing.Point(34, 261);
@@ -73,7 +74,9 @@
             this.txtCardId.Name = "txtCardId";
             this.txtCardId.Size = new System.Drawing.Size(414, 30);
             this.txtCardId.TabIndex = 0;
+            this.txtCardId.TextChanged += new System.EventHandler(this.txtCardId_TextChanged);
             this.txtCardId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCardId_KeyPress);
+            this.txtCardId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCardId_KeyUp);
             // 
             // groupBox2
             // 
@@ -97,6 +100,8 @@
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(414, 30);
             this.txtPassword.TabIndex = 0;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // btnRegister
             // 

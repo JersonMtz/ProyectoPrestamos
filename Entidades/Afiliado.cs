@@ -39,11 +39,11 @@ namespace ProyectoPrestamos.Entidades
             return data;
         }
 
-        public static List<string> IniciarSesion(string cedula)
+        public static List<string> IniciarSesion(string value)
         {
             string query = "SELECT af.IdAfiliado, af.Cedula, af.Nombre, af.PriApellido, af.SegApellido, us.Contrasenna, af.Tipo, cu.Saldo, " +
                 "cu.ValorRiesgo FROM Afiliados AS af INNER JOIN Usuarios AS us " +
-                "ON af.IdAfiliado = us.IdAfiliado INNER JOIN Cuentas AS cu on cu.IdAfiliado = af.IdAfiliado WHERE af.Cedula =" + $"{ cedula }";
+                "ON af.IdAfiliado = us.IdAfiliado INNER JOIN Cuentas AS cu on cu.IdAfiliado = af.IdAfiliado WHERE af.Cedula =" + $"{ value }";
             
             var mysql = Mysql.Init();
             var res = mysql.Select(query);

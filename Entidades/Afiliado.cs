@@ -91,11 +91,6 @@ namespace ProyectoPrestamos.Entidades
 
         }
 
-        public void Eliminar()
-        {
-
-        }
-
         private int getIdAfiliado()
         {
             int id = 0;
@@ -110,12 +105,5 @@ namespace ProyectoPrestamos.Entidades
             mysql.Close();
             return id;
         }
-
-        public void Listar()
-        {
-            
-        }
-
-
     }
 }

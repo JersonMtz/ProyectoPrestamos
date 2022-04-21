@@ -54,9 +54,52 @@ namespace ProyectoPrestamos.Entidades
 
         }
 
-        public void Eliminar()
+        public static List<string[]> prestamosXafiliado(string id)
         {
+            string query = $"SELECT IdSolicitud, Codigo, Fecha, Motivo, " +
+                $"ImporteTotal, Plazo, Interes, Estado FROM Solicitudes WHERE IdAfiliado = { id }";
+            var mysql = Mysql.Init();
+            var res = mysql.Select(query);
 
+            List<string[]> lista = new List<string[]>();
+
+
+            while (res.Read())
+            {
+                string[] row = { $"{ res["IdSolicitud"] }", $"{ res["Codigo"] }", $"{ res["Fecha"] }",
+                $"{ res["Motivo"] }", $"{ res["ImporteTotal"] }", $"{ res["Plazo"] }", $"{ res["Interes"] }", 
+                $"{ res["Estado"] }"};
+
+                lista.Add(row);
+            }
+
+            mysql.Close();
+            return lista;
+        }
+
+        public static List<string[]> prestamosPendientes()
+        {
+            string query = "SELECT SO.IdSolicitud, CONCAT(AF.Nombre, ' ', AF.PriApellido,' ', AF.SegApellido) " +
+                "AS Solicitante, SO.Codigo, SO.Fecha, SO.Motivo, SO.ImporteTotal, SO.Plazo, SO.Interes," +
+                "SO.Estado FROM Solicitudes AS SO INNER JOIN Afiliados AS" +
+                " AF ON SO.IdAfiliado = AF.IdAfiliado WHERE SO.Estado = '0'";
+            var mysql = Mysql.Init();
+            var res = mysql.Select(query);
+
+            List<string[]> lista = new List<string[]>();
+
+
+            while (res.Read())
+            {
+                string[] row = { $"{ res["IdSolicitud"] }", $"{ res["Solicitante"] }", $"{ res["Codigo"] }", 
+                    $"{ res["Fecha"] }", $"{ res["Motivo"] }", $"{ res["ImporteTotal"] }", $"{ res["Plazo"] }", 
+                    $"{ res["Interes"] }", $"{ res["Estado"] }"};
+
+                lista.Add(row);
+            }
+
+            mysql.Close();
+            return lista;
         }
     }
 }

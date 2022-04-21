@@ -11,11 +11,7 @@ namespace ProyectoPrestamos.Interfaces
         public void Registrar();
         
         public void Actualizar();
-        
-        public void Eliminar();
-        
-        //public void Registrar();
-        
+       
         public string[] toString();
     }
 }

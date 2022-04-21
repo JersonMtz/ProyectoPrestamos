@@ -31,12 +31,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnPrestamo = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.listaPrestamos = new System.Windows.Forms.DataGridView();
             this.lblValorRiesgo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnListar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.listaPrestamos)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -53,7 +54,7 @@
             // btnPrestamo
             // 
             this.btnPrestamo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrestamo.Location = new System.Drawing.Point(817, 99);
+            this.btnPrestamo.Location = new System.Drawing.Point(817, 143);
             this.btnPrestamo.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrestamo.Name = "btnPrestamo";
             this.btnPrestamo.Size = new System.Drawing.Size(129, 54);
@@ -74,16 +75,16 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // dataGridView1
+            // listaPrestamos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 227);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(931, 392);
-            this.dataGridView1.TabIndex = 15;
+            this.listaPrestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listaPrestamos.Location = new System.Drawing.Point(15, 227);
+            this.listaPrestamos.Margin = new System.Windows.Forms.Padding(4);
+            this.listaPrestamos.Name = "listaPrestamos";
+            this.listaPrestamos.RowHeadersWidth = 51;
+            this.listaPrestamos.RowTemplate.Height = 29;
+            this.listaPrestamos.Size = new System.Drawing.Size(931, 392);
+            this.listaPrestamos.TabIndex = 15;
             // 
             // lblValorRiesgo
             // 
@@ -129,15 +130,28 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Usuario:";
             // 
+            // btnListar
+            // 
+            this.btnListar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListar.Location = new System.Drawing.Point(818, 94);
+            this.btnListar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(129, 41);
+            this.btnListar.TabIndex = 19;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
             // MenuDebtor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 639);
+            this.Controls.Add(this.btnListar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPrestamo);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.listaPrestamos);
             this.Controls.Add(this.lblValorRiesgo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblUsuario);
@@ -147,7 +161,9 @@
             this.Name = "MenuDebtor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú Deudor";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuDebtor_FormClosing);
+            this.Load += new System.EventHandler(this.MenuDebtor_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.listaPrestamos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,10 +174,11 @@
         private Label label2;
         private Button btnPrestamo;
         private Button btnSalir;
-        private DataGridView dataGridView1;
+        private DataGridView listaPrestamos;
         private Label lblValorRiesgo;
         private Label label3;
         private Label lblUsuario;
         private Label label1;
+        private Button btnListar;
     }
 }

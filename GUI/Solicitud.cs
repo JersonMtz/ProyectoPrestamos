@@ -32,7 +32,7 @@ namespace ProyectoPrestamos
             {
                 day = "K";
             }
-            else if (day == "miercoles")
+            else if (day == "miércoles")
             {
                 day = "M";
             }
@@ -77,7 +77,7 @@ namespace ProyectoPrestamos
         
         private void Solicitud_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (txtImporte.Text == "0" || txtMotivo.Text == String.Empty)
+            if (txtMotivo.Text == String.Empty)
             {
                 this.menu.Enabled = true;
                 e.Cancel = false;

@@ -10,7 +10,7 @@ namespace ProyectoPrestamos.DB
 {
     public class Mysql
     {
-        private static readonly Mysql _instance;
+        private static Mysql _instance = null;
 
         private MySqlConnection conn = new MySqlConnection();
         private readonly string server = "bf1wytpoupha59bdb1r1-mysql.services.clever-cloud.com";

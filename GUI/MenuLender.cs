@@ -20,7 +20,7 @@ namespace ProyectoPrestamos
             InitializeComponent();
             this.id = id;
             this.lblUsuario.Text = nombre;
-            this.lblSaldo.Text = saldo;
+            this.lblSaldo.Text = "₡ " + saldo;
             this.login = login;
 
             this.AgregarColumnas();
@@ -47,9 +47,9 @@ namespace ProyectoPrestamos
 
                 for (int i = 0; i < lista.Count; i++)
                 {
-                    string estado = lista[i][7] == "False" ? "Pendiente" : "Aprobado";
+                    string estado = lista[i][8] == "False" ? "Pendiente" : "Aprobado";
                     this.listaPrestamos.Rows.Add(lista[i][0], lista[i][1], lista[i][2],
-                        lista[i][3], lista[i][4], lista[i][5], lista[i][6], lista[i][7], lista[i][8]);
+                        lista[i][3], lista[i][4], "₡ " + lista[i][5], lista[i][6], lista[i][7] + "%", estado);
                 }
 
             }
@@ -78,6 +78,62 @@ namespace ProyectoPrestamos
         private void MenuLender_Load(object sender, EventArgs e)
         {
             this.CargarDatos();
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            this.listaPrestamos.Columns.Clear();
+            this.AgregarColumnas();
+            this.CargarDatos();
+            Cursor = Cursors.Default;
+        }
+
+        private void listaPrestamos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (lblSaldo.Text == "₡ 0")
+            {
+                MessageBox.Show("Su saldo es de ₡ O. Usted no puede realizar más importes");
+                return;
+            }
+
+            string idSolicitud = this.listaPrestamos.Rows[e.RowIndex].Cells["numero"].FormattedValue.ToString();
+            string solicitante = this.listaPrestamos.Rows[e.RowIndex].Cells["solicitante"].FormattedValue.ToString();
+            string prestamo = this.listaPrestamos.Rows[e.RowIndex].Cells["importeTotal"].FormattedValue.ToString();
+            var respuesta = Microsoft.VisualBasic
+                .Interaction.InputBox($"Ingrese la cantidad aportar para el préstamo de: { solicitante }", "Realizar Importe", "");
+
+            try
+            {
+                if (respuesta.Trim() != String.Empty)
+                {
+                    int prestamoTotal = Int32.Parse(prestamo.Replace("₡", "").Trim());
+                    int importe = Int32.Parse(respuesta);
+                    int saldo = Int32.Parse(lblSaldo.Text.Replace("₡ ", ""));
+                    if (importe > prestamoTotal)
+                    {
+                        MessageBox.Show("Importe NO realizado. El importe supera el préstamo total");
+                        return;
+                    }
+                    
+                    if (importe <= saldo)
+                    {
+                        var aporte = new Aporte(idSolicitud, this.id);
+                        aporte.Registrar();
+                        MessageBox.Show("Importe Realizado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Importe NO realizado");
+                    }
+                }
+
+                return;
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error. Contacte con el administrador. " + ex.Message);
+            }
         }
     }
 }

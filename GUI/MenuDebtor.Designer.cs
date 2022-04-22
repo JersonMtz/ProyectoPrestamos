@@ -81,6 +81,7 @@
             this.listaPrestamos.Location = new System.Drawing.Point(15, 227);
             this.listaPrestamos.Margin = new System.Windows.Forms.Padding(4);
             this.listaPrestamos.Name = "listaPrestamos";
+            this.listaPrestamos.ReadOnly = true;
             this.listaPrestamos.RowHeadersWidth = 51;
             this.listaPrestamos.RowTemplate.Height = 29;
             this.listaPrestamos.Size = new System.Drawing.Size(931, 392);

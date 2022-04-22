@@ -49,7 +49,7 @@ namespace ProyectoPrestamos
                 {
                     string estado = lista[i][7] == "False" ? "Pendiente" : "Aprobado";
                     this.listaPrestamos.Rows.Add(lista[i][0], lista[i][1], lista[i][2],
-                        lista[i][3], lista[i][4], lista[i][5], lista[i][6], estado);
+                        lista[i][3], "₡ " + lista[i][4], lista[i][5], lista[i][6] + "%", estado);
                 }
 
             }
@@ -89,8 +89,11 @@ namespace ProyectoPrestamos
 
         private void btnListar_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             this.listaPrestamos.Columns.Clear();
             this.AgregarColumnas();
+            this.CargarDatos();
+            Cursor = Cursors.Default;
         }
     }
 }

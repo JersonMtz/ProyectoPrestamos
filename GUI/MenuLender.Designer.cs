@@ -35,6 +35,8 @@
             this.listaPrestamos = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listaPrestamos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,10 +89,12 @@
             this.listaPrestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listaPrestamos.Location = new System.Drawing.Point(15, 227);
             this.listaPrestamos.Name = "listaPrestamos";
+            this.listaPrestamos.ReadOnly = true;
             this.listaPrestamos.RowHeadersWidth = 51;
             this.listaPrestamos.RowTemplate.Height = 29;
             this.listaPrestamos.Size = new System.Drawing.Size(931, 392);
             this.listaPrestamos.TabIndex = 7;
+            this.listaPrestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listaPrestamos_CellClick);
             // 
             // btnSalir
             // 
@@ -114,11 +118,35 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Solicitudes de préstamo";
             // 
+            // btnListar
+            // 
+            this.btnListar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListar.Location = new System.Drawing.Point(817, 89);
+            this.btnListar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(129, 41);
+            this.btnListar.TabIndex = 20;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(734, 204);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(214, 17);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Haz clic para seleccionar registro ";
+            // 
             // MenuLender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 639);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnListar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.listaPrestamos);
@@ -149,5 +177,7 @@
         private DataGridView listaPrestamos;
         private Button btnSalir;
         private Label label2;
+        private Button btnListar;
+        private Label label4;
     }
 }
